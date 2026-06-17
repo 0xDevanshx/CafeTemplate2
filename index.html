@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brew &amp; Bloom — Artisan Coffee &amp; Cafe</title>
+  <meta name="description" content="Brew & Bloom is a premium artisan cafe serving handcrafted coffee, fresh pastries, and gourmet food in a warm, cozy atmosphere. Visit us for an unforgettable experience." />
+  <meta name="keywords" content="cafe, coffee, artisan, premium coffee, pastries, latte, espresso, cafe near me" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PAGE LOADER ===== -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-coffee"></div>
+    <p class="loader-text">Brew &amp; Bloom</p>
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="nav-logo" id="navLogo">
+        <div class="nav-logo-icon">☕</div>
+        <span class="nav-logo-text">Brew &amp; Bloom</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" data-section="home">Home</a>
+        <a href="#menu" class="nav-link" data-section="menu">Menu</a>
+        <a href="#about" class="nav-link" data-section="about">Our Story</a>
+        <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+        <a href="#testimonials" class="nav-link" data-section="testimonials">Reviews</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        <a href="#contact" class="nav-cta" id="navCta">Reserve a Table</a>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="nav-link" data-mobile-link>Home</a>
+    <a href="#menu" class="nav-link" data-mobile-link>Menu</a>
+    <a href="#about" class="nav-link" data-mobile-link>Our Story</a>
+    <a href="#gallery" class="nav-link" data-mobile-link>Gallery</a>
+    <a href="#testimonials" class="nav-link" data-mobile-link>Reviews</a>
+    <a href="#contact" class="nav-link" data-mobile-link>Contact</a>
+    <a href="#contact" class="nav-cta" data-mobile-link>Reserve a Table</a>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="images/hero-coffee.png" alt="Warm coffee shop interior with golden lighting" />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text">Since 2015 — Crafted with Love</span>
+      </div>
+
+      <h1 class="hero-title">
+        Where Every<br />Cup Tells a<br /><em>Story</em>
+      </h1>
+
+      <p class="hero-description">
+        Discover the art of slow coffee. Hand-roasted beans, warm conversations, 
+        and a corner that feels like home. Welcome to Brew &amp; Bloom.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#menu" class="btn-primary" id="heroCta">
+          <span>Explore Our Menu</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-outline" id="heroStory">
+          <span>Our Story</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Stats -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number">10+</div>
+        <div class="hero-stat-label">Years of Brewing</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">50K+</div>
+        <div class="hero-stat-label">Happy Customers</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">35+</div>
+        <div class="hero-stat-label">Unique Blends</div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED MENU SECTION ===== -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="menu-header reveal">
+        <span class="section-label">Our Menu</span>
+        <h2 class="section-title">Crafted with Passion</h2>
+        <p class="section-subtitle">
+          From single-origin espressos to freshly baked pastries — every item is crafted 
+          to deliver an unforgettable experience.
+        </p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-tabs reveal" id="menuTabs">
+        <button class="menu-tab active" data-category="all">All</button>
+        <button class="menu-tab" data-category="coffee">Coffee</button>
+        <button class="menu-tab" data-category="cold">Cold Brews</button>
+        <button class="menu-tab" data-category="food">Food</button>
+        <button class="menu-tab" data-category="pastry">Pastries</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- Card 1 -->
+        <div class="menu-card reveal" data-category="coffee" id="menuCard1">
+          <div class="menu-card-image">
+            <img src="images/menu-latte.png" alt="Signature Caramel Latte with beautiful latte art" loading="lazy" />
+            <span class="menu-card-badge">Bestseller</span>
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Hot Coffee</span>
+            <h3 class="menu-card-title">Signature Caramel Latte</h3>
+            <p class="menu-card-description">Rich espresso blended with velvety steamed milk and our house-made caramel drizzle.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$5.50 <span>/ regular</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="menu-card reveal" data-category="coffee" id="menuCard2">
+          <div class="menu-card-image">
+            <img src="images/menu-espresso.png" alt="Classic double espresso shot with golden crema" loading="lazy" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Espresso</span>
+            <h3 class="menu-card-title">Classic Double Espresso</h3>
+            <p class="menu-card-description">Bold and smooth double-shot espresso from our single-origin Ethiopian beans.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$3.80 <span>/ double</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="menu-card reveal" data-category="cold" id="menuCard3">
+          <div class="menu-card-image">
+            <img src="images/menu-coldcoffee.png" alt="Iced cold brew coffee with cream swirl" loading="lazy" />
+            <span class="menu-card-badge">New</span>
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Cold Brew</span>
+            <h3 class="menu-card-title">Iced Vanilla Cold Brew</h3>
+            <p class="menu-card-description">24-hour steeped cold brew with Madagascar vanilla and a splash of oat cream.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$6.20 <span>/ large</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="menu-card reveal" data-category="pastry" id="menuCard4">
+          <div class="menu-card-image">
+            <img src="images/menu-pastry.png" alt="Freshly baked butter croissants" loading="lazy" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Pastries</span>
+            <h3 class="menu-card-title">Butter Croissant</h3>
+            <p class="menu-card-description">Flaky, golden, hand-rolled French croissant baked fresh every morning.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$4.20 <span>/ each</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="menu-card reveal" data-category="food" id="menuCard5">
+          <div class="menu-card-image">
+            <img src="images/menu-sandwich.png" alt="Gourmet avocado and grilled chicken sandwich" loading="lazy" />
+            <span class="menu-card-badge">Popular</span>
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Gourmet Food</span>
+            <h3 class="menu-card-title">Avocado Club Sandwich</h3>
+            <p class="menu-card-description">Artisan sourdough with smashed avocado, grilled chicken, arugula, and pesto aioli.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$9.50 <span>/ plate</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="menu-card reveal" data-category="coffee" id="menuCard6">
+          <div class="menu-card-image">
+            <img src="images/menu-latte.png" alt="Matcha oat milk latte" loading="lazy" />
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-category">Specialty</span>
+            <h3 class="menu-card-title">Matcha Oat Latte</h3>
+            <p class="menu-card-description">Ceremonial-grade matcha whisked with creamy oat milk. Earthy, smooth, and calming.</p>
+            <div class="menu-card-footer">
+              <span class="menu-card-price">$5.80 <span>/ regular</span></span>
+              <button class="menu-card-add" aria-label="Add to order">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-view-all reveal">
+        <a href="#" class="btn-view-all" id="viewFullMenu">
+          <span>View Full Menu</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / STORY SECTION ===== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper reveal-left">
+          <div class="about-image">
+            <img src="images/about-barista.png" alt="Barista pouring intricate latte art" loading="lazy" />
+          </div>
+          <div class="about-image-accent"></div>
+          <div class="about-experience-badge">
+            <div class="about-experience-number">10+</div>
+            <div class="about-experience-text">Years of Craft</div>
+          </div>
+        </div>
+
+        <div class="about-content reveal-right">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">A Love Letter<br />to Coffee</h2>
+          <p class="about-text">
+            Born in 2015 from a shared passion for the perfect cup, Brew &amp; Bloom 
+            started as a small corner shop with a big dream. Today, we source beans directly 
+            from family farms in Ethiopia, Colombia, and Guatemala — roasting them in-house 
+            to bring out flavors you won't find anywhere else.
+          </p>
+          <p class="about-text">
+            Every morning, our baristas arrive before sunrise to bake pastries from scratch 
+            and dial in the perfect espresso. It's not just coffee — it's a ritual, a community, 
+            and a moment of calm in a busy world.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">🌿</div>
+              <span class="about-feature-text">Ethically Sourced Beans</span>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🔥</div>
+              <span class="about-feature-text">Roasted In-House Daily</span>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🥐</div>
+              <span class="about-feature-text">Fresh Baked Pastries</span>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">💛</div>
+              <span class="about-feature-text">Community Focused</span>
+            </div>
+          </div>
+
+          <a href="#contact" class="about-cta" id="aboutCta">
+            <span>Visit Us Today</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX BANNER ===== -->
+  <div class="parallax-banner" id="parallaxBanner">
+    <div class="parallax-banner-bg">
+      <img src="images/gallery-beans.png" alt="Coffee beans being roasted" loading="lazy" />
+    </div>
+    <div class="parallax-banner-overlay"></div>
+    <div class="parallax-banner-content reveal-scale">
+      <h2 class="parallax-banner-title">Life Is Too Short for <em>Bad Coffee</em></h2>
+      <p class="parallax-banner-text">Reserve your table and let us make your day with the perfect brew.</p>
+      <a href="#contact" class="parallax-banner-cta" id="bannerCta">
+        <span>Book a Table</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== TESTIMONIALS SECTION ===== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-subtitle">
+          Don't just take our word for it — hear from the people who make 
+          Brew &amp; Bloom their everyday escape.
+        </p>
+      </div>
+
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card reveal" id="testimonial1">
+          <div class="testimonial-quote-icon">"</div>
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          <p class="testimonial-text">
+            "The best latte I've ever had. The atmosphere is incredibly warm 
+            and the baristas genuinely care about their craft. This is my daily sanctuary."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SP</div>
+            <div class="testimonial-author-info">
+              <h4>Sophia Patel</h4>
+              <span>Regular since 2019</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card reveal" id="testimonial2">
+          <div class="testimonial-quote-icon">"</div>
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          <p class="testimonial-text">
+            "I bring all my clients here for meetings. The ambiance is professional 
+            yet cozy, and the pastries are absolutely divine. Can't recommend it enough."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MC</div>
+            <div class="testimonial-author-info">
+              <h4>Marcus Chen</h4>
+              <span>Business Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card reveal" id="testimonial3">
+          <div class="testimonial-quote-icon">"</div>
+          <div class="testimonial-stars">
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+            <span class="testimonial-star">★</span>
+          </div>
+          <p class="testimonial-text">
+            "I traveled from out of town and it was absolutely worth the visit. 
+            The cold brew is perfection and the interior design feels like a warm hug."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AR</div>
+            <div class="testimonial-author-info">
+              <h4>Ananya Reddy</h4>
+              <span>Coffee Enthusiast</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <span class="section-label">Gallery</span>
+        <h2 class="section-title">Step Inside Our World</h2>
+        <p class="section-subtitle">
+          From cozy corners to sunny patios — take a glimpse of the Brew &amp; Bloom experience.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item reveal-scale" id="galleryItem1">
+          <img src="images/gallery-interior.png" alt="Cozy cafe interior with warm lighting and leather armchairs" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">The Cozy Corner</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" id="galleryItem2">
+          <img src="images/gallery-beans.png" alt="Premium coffee beans being roasted" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Fresh Roasts</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" id="galleryItem3">
+          <img src="images/gallery-counter.png" alt="Beautiful cafe counter with espresso machine" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">The Brew Bar</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" id="galleryItem4">
+          <img src="images/about-barista.png" alt="Barista crafting latte art" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Latte Art</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" id="galleryItem5">
+          <img src="images/gallery-outdoor.png" alt="Charming outdoor cafe seating" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-title">Garden Terrace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Visit Brew &amp; Bloom</h2>
+          <p class="section-subtitle">
+            We'd love to see you. Drop by for a cup, or reach out to us anytime.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div class="contact-detail-content">
+                <h4>Location</h4>
+                <p>42 Maple Street, Oakwood District<br />New York, NY 10012</p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🕐</div>
+              <div class="contact-detail-content">
+                <h4>Opening Hours</h4>
+                <p>Mon — Fri: 7:00 AM — 9:00 PM<br />Sat — Sun: 8:00 AM — 10:00 PM</p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <div class="contact-detail-content">
+                <h4>Contact</h4>
+                <p>+1 (212) 555-0147<br />hello@brewandbloom.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="#" aria-label="Instagram" id="socialInstagram">📷</a>
+            <a href="#" aria-label="Facebook" id="socialFacebook">📘</a>
+            <a href="#" aria-label="Twitter" id="socialTwitter">🐦</a>
+            <a href="#" aria-label="TikTok" id="socialTiktok">🎵</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal-right">
+          <h3 class="contact-form-title">Reserve a Table</h3>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formName">Your Name</label>
+                <input type="text" class="form-input" id="formName" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formEmail">Email Address</label>
+                <input type="email" class="form-input" id="formEmail" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formDate">Preferred Date</label>
+                <input type="date" class="form-input" id="formDate" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formGuests">Number of Guests</label>
+                <input type="number" class="form-input" id="formGuests" placeholder="2" min="1" max="20" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="formMessage">Special Requests</label>
+              <textarea class="form-textarea" id="formMessage" placeholder="Any special requests or dietary needs..."></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmit">Reserve Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <div class="nav-logo-icon">☕</div>
+            <span class="nav-logo-text">Brew &amp; Bloom</span>
+          </a>
+          <p class="footer-brand-text">
+            Crafting memorable coffee experiences since 2015. 
+            Ethically sourced, lovingly brewed, and served with a smile.
+          </p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Your email address" id="newsletterInput" />
+            <button type="button" id="newsletterBtn">Subscribe</button>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#about">Our Story</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Menu</h4>
+          <div class="footer-links">
+            <a href="#menu">Espresso Drinks</a>
+            <a href="#menu">Cold Brews</a>
+            <a href="#menu">Pastries</a>
+            <a href="#menu">Gourmet Food</a>
+            <a href="#menu">Specials</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Visit Us</h4>
+          <div class="footer-links">
+            <a href="#">42 Maple Street</a>
+            <a href="#">Oakwood District</a>
+            <a href="#">New York, NY 10012</a>
+            <a href="#">+1 (212) 555-0147</a>
+            <a href="#">hello@brewandbloom.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Brew &amp; Bloom. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
