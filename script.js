@@ -32,54 +32,64 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================
   //  NAVBAR — SCROLL HIDE/SHOW + GLASSMORPHISM
   // ========================================
+  // ========================================
+  //  GLOBAL ELEMENTS FOR SCROLL
+  // ========================================
   const navbar = document.getElementById('navbar');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const backToTop = document.getElementById('backToTop');
+  
+  // Create progress bar
+  const progressBar = document.createElement('div');
+  progressBar.style.cssText = `
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 10001;
+    background: linear-gradient(to right, #C8956C, #C9A96E);
+    transform-origin: left; transform: scaleX(0);
+    pointer-events: none; transition: none;
+  `;
+  document.body.appendChild(progressBar);
+
+  // ========================================
+  //  SCROLL EVENT OPTIMIZATION (RAF)
+  // ========================================
   let lastScrollY = 0;
   let navHidden = false;
-
-  const handleNavbarScroll = () => {
+  let scrollTicking = false;
+  
+  const handleScrollEvents = () => {
     const scrollY = window.scrollY;
 
-    // Glassmorphism on scroll
-    if (scrollY > 80) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    // --- Navbar Glassmorphism & Hide/Show ---
+    if (navbar) {
+      if (scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
 
-    // Hide/show on scroll direction
-    if (scrollY > 400) {
-      if (scrollY > lastScrollY && !navHidden) {
-        navbar.classList.add('hidden');
-        navHidden = true;
-      } else if (scrollY < lastScrollY && navHidden) {
+      if (scrollY > 400) {
+        if (scrollY > lastScrollY && !navHidden) {
+          navbar.classList.add('hidden');
+          navHidden = true;
+        } else if (scrollY < lastScrollY && navHidden) {
+          navbar.classList.remove('hidden');
+          navHidden = false;
+        }
+      } else {
         navbar.classList.remove('hidden');
         navHidden = false;
       }
-    } else {
-      navbar.classList.remove('hidden');
-      navHidden = false;
     }
 
-    lastScrollY = scrollY;
-  };
-
-  window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-
-  // ========================================
-  //  ACTIVE NAV LINK ON SCROLL
-  // ========================================
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link[data-section]');
-
-  const updateActiveLink = () => {
-    const scrollY = window.scrollY + 200;
-
+    // --- Active Nav Link ---
+    const scrollOffset = scrollY + 200;
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute('id');
 
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      if (scrollOffset >= sectionTop && scrollOffset < sectionTop + sectionHeight) {
         navLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('data-section') === sectionId) {
@@ -88,9 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+
+    // --- Back to Top & Progress Bar ---
+    if (scrollY > 600) {
+      if (backToTop) backToTop.classList.add('visible');
+    } else {
+      if (backToTop) backToTop.classList.remove('visible');
+    }
+
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollHeight > 0 ? scrollY / scrollHeight : 0;
+    if (progressBar) progressBar.style.transform = `scaleX(${scrollPercent})`;
+
+    lastScrollY = scrollY;
+    scrollTicking = false;
   };
 
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(handleScrollEvents);
+      scrollTicking = true;
+    }
+  }, { passive: true });
 
   // ========================================
   //  MOBILE MENU
@@ -551,29 +580,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNewsletter('footerNewsletterInput', 'footerNewsletterBtn');
 
   // ========================================
-  //  BACK TO TOP & PROGRESS BAR
+  //  BACK TO TOP CLICK EVENT
   // ========================================
-  const backToTop = document.getElementById('backToTop');
-  const progressBar = document.createElement('div');
-  progressBar.style.cssText = `
-    position: fixed; top: 0; left: 0; height: 3px; z-index: 10001;
-    background: linear-gradient(to right, #C8956C, #C9A96E);
-    transform-origin: left; transform: scaleX(0);
-    pointer-events: none; transition: none;
-  `;
-  document.body.appendChild(progressBar);
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = scrollHeight > 0 ? window.scrollY / scrollHeight : 0;
-    progressBar.style.transform = `scaleX(${scrollPercent})`;
-  }, { passive: true });
 
   backToTop.addEventListener('click', () => {
     gsap.to(window, { scrollTo: 0, duration: 1, ease: 'power3.inOut' });
